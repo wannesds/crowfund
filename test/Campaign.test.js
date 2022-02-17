@@ -17,4 +17,18 @@ beforeEach(async () => {
     factory = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
         .deploy({ data: compiledFactory.bytecode })
         .send({ from: accounts[0], gas: '1000000'})
+    
+    await factory.methods.createCampaign('100').send({
+        from: accounts[0],
+        gas: '1000000'
+    });
+
+    [campaignAddress] = await factory.methods.getDeployedCampaigns().call();
+    // ([x] = 'some array') -> this will take first value from some array and put into the var X
+    // use call() bcs this function doesnt change any data in the contract
+    campaign = await new web3.eth.Contract(
+        JSON.parse(compiledCampaign.interface),
+        campaignAddress
+    );
+
 });
