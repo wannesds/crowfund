@@ -9,8 +9,6 @@ console.log(process.env)
 const provider = new HDWalletProvider(
   process.env.MNEMONIC,
   process.env.API
-  //'https://rinkeby.infura.io/v3/15c1d32581894b88a92d8d9e519e476c'
-  // remember to change this to your own endpoint!
 );
 const web3 = new Web3(provider);
 
