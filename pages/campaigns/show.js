@@ -1,4 +1,3 @@
-import { assignNewMochaID } from 'mocha/lib/utils';
 import React, { Component } from 'react';
 import { Card, Grid, Button } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
@@ -13,15 +12,18 @@ class CampaignShow extends Component {
 
     const summary = await campaign.methods.getSummary().call();
     //result is an object!
+    
     return { 
       address: props.query.address,
-      minimumContribution: summary[0],
-      balance: summary[1],
-      requestsCount: summary[2],
-      approversCount: summary[3],
-      manager: summary[4]
+      title: summary[0],
+      minimumContribution: summary[1],
+      balance: summary[2],
+      requestsCount: summary[3],
+      approversCount: summary[4],
+      manager: summary[5]
      };
   }
+  
 
   renderCards() {
     const {
@@ -29,10 +31,18 @@ class CampaignShow extends Component {
       manager,
       minimumContribution,
       requestsCount,
-      approversCount
+      approversCount,
+      title
     } = this.props;
+    console.log(this.props)
 
     const items = [
+      {
+        header: title,
+        meta: 'Campaign Title',
+        description: 'Information about the campaign.',
+        style: { overflowWrap: 'break-word' }
+      },
       {
         header: manager,
         meta: 'Address of Manager',

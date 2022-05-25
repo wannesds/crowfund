@@ -13,6 +13,7 @@ class CampaignIndex extends Component {
 
   renderCampaigns() {
     const items = this.props.campaigns.map((address) => {
+
       return {
         header: address,
         description: (
@@ -23,7 +24,7 @@ class CampaignIndex extends Component {
         fluid: true,
       };
     });
-
+   
     return <Card.Group items={items} />;
   }
 

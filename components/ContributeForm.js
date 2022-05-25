@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Message, Button } from 'semantic-ui-react';
+import { Form, Input, Message, Button, Label } from 'semantic-ui-react';
 import Campaign from '../ethereum/campaign';
 import web3 from '../ethereum/web3';
 import { Router } from '../routes';
@@ -39,6 +39,7 @@ class ContributeForm extends Component {
       <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
         <Form.Field>
           <label>Amount to Contribute</label>
+          <Label pointing='below' basic color='red'>You can only contribute once!</Label>
           <Input 
             value={this.state.value}
             onChange={event => this.setState({ value: event.target.value })}

@@ -1,12 +1,16 @@
 // SPDX-License-Identifier: GPL-3.0
 
+//changelog
+//+ require check to prevent double contribution
+//+ campaign title
+
 pragma solidity ^0.4.17;
 
 contract CampaignFactory {
     address[] public deployedCampaigns;
 
-    function createCampaign(uint minimum) public {
-        address newCampaign = new Campaign(minimum, msg.sender);
+    function createCampaign(uint minimum, string campaignTitle) public {
+        address newCampaign = new Campaign(minimum, campaignTitle, msg.sender);
         deployedCampaigns.push(newCampaign);
     }
 
@@ -28,6 +32,7 @@ contract Campaign {
     Request[] public requests;
     address public manager;
     uint public minimumContribution;
+    string public title;
     mapping(address => bool) public approvers;
     uint public approversCount;
 
@@ -36,13 +41,15 @@ contract Campaign {
         _;
     }
 
-    function Campaign(uint minimum, address creator) public {
+    function Campaign(uint minimum, string campaignTitle, address creator) public {
         manager = creator;
         minimumContribution = minimum;
+        title = campaignTitle;
     }
 
     function contribute() public payable {
         require(msg.value > minimumContribution);
+        require(!approvers[msg.sender]); //new
 
         approvers[msg.sender] = true;
         approversCount++;
@@ -80,8 +87,9 @@ contract Campaign {
         request.complete = true;
     }
 
-    function getSummary() public view returns (uint, uint, uint, uint, address) {
+    function getSummary() public view returns (string, uint, uint, uint, uint, address) {
         return (
+            title,
             minimumContribution,
             this.balance,
             requests.length,
