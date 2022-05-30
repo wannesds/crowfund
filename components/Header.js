@@ -1,11 +1,11 @@
 import { Main } from 'next/document';
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Segment } from 'semantic-ui-react';
 import { Link } from '../routes';
 
 export default () => {
   return (
-    <Menu style={{ marginTop: '10px' }}>
+    <Menu inverted style={{ marginTop: '10px' }}>
       <Link route="/">
         <a className="item">Crowfund</a>
       </Link>
