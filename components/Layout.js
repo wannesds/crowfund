@@ -5,15 +5,22 @@ import Header from './Header';
 
 export default (props) => {
   return (
-    <Container>
-      
+    <div style={{
+      backgroundColor: "#191A1E", 
+      minHeight: "100vh", 
+      marginTop: "-10px", 
+      paddingTop: "20px",
+      color: "white"
+      }}>
+      <Container>
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"/>
       </Head>
       
       <Header />
       {props.children}
-      
-    </Container> 
+      </Container>
+    </div>
+     
   );
 };

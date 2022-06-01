@@ -5,19 +5,19 @@ import { Link } from '../routes';
 
 export default () => {
   return (
-    <Menu inverted style={{ marginTop: '10px' }}>
+    <Menu inverted style={{ marginTop: '10px'}}>
       <Link route="/">
-        <a className="item">Crowfund</a>
+        <a style={{color: "orange"}} className="item">Crowfund</a>
       </Link>
       
 
       <Menu.Menu position="right">
         <Link route="/">
-          <a className="item">Campaigns</a>
+          <a style={{color: "orange"}} className="item">Campaigns</a>
         </Link>
         
         <Link route="/campaigns/new">
-          <a className="item">+</a>
+          <a style={{color: "orange"}} className="item">+</a>
         </Link>
       </Menu.Menu>
     </Menu>
