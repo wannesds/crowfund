@@ -41,33 +41,37 @@ class CampaignShow extends Component {
         header: title,
         meta: 'Campaign Title',
         description: 'Information about the campaign.',
-        style: { overflowWrap: 'break-word' }
+        style: { overflowWrap: 'break-word', backgroundColor: '#F9E9D1'}  
       },
       {
         header: manager,
         meta: 'Address of Manager',
         description: 'The manager created this campaign and can make spend requests.',
-        style: { overflowWrap: 'break-word' }
+        style: { overflowWrap: 'break-word', backgroundColor: '#F9E9D1'}
       },
       {
         header: minimumContribution,
         meta: 'Minimum Contribution (wei)',
         description: 'Minimum amount to be able to become a contributor.',
+        style: { backgroundColor: '#F9E9D1'}
       },
       {
         header: requestsCount,
         meta: 'Number of Requests',
         description: 'A request withdraws money from the campaign if enough contributors approve it.',
+        style: { backgroundColor: '#F9E9D1'}
       },
       {
         header: approversCount,
         meta: 'Number of Approvers',
         description: 'Number of contributors who donated to this campaign',
+        style: { backgroundColor: '#F9E9D1'}
       },
       {
         header: web3.utils.fromWei(balance, 'ether'),
         meta: 'Campaign Balance (ether)',
-        description: 'Amount of money this campaign has left to spend.'
+        description: 'Amount of money this campaign has left to spend.',
+        style: { backgroundColor: '#F9E9D1'}
       }
     ];
 
@@ -77,7 +81,7 @@ class CampaignShow extends Component {
   render() {
     return (
       <Layout>
-        <h3>Campaign Show</h3>
+        <h3 style={{color: "#F9E9D1"}}>Campaign Show</h3>
         <Grid>
           <Grid.Row>
             <Grid.Column width={10}>
@@ -93,7 +97,7 @@ class CampaignShow extends Component {
             <Grid.Column>
               <Link route={`/campaigns/${this.props.address}/requests`}>
                 <a>
-                  <Button primary>View Requests</Button>  
+                  <Button inverted color="orange">View Requests</Button>  
                 </a>  
               </Link>
             </Grid.Column>

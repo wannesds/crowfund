@@ -41,7 +41,7 @@ class CampaignNew extends Component {
 
       <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
         <Form.Field>
-          <label>Campaign Title</label>
+          <label style={{color: "#F9E9D1"}}>Campaign Title</label>
           <Input 
             value={this.state.campaignTitle}
             onChange={event => 
@@ -50,7 +50,7 @@ class CampaignNew extends Component {
         </Form.Field>
 
         <Form.Field>
-          <label>Minimum Contribution</label>
+          <label style={{color: "#F9E9D1"}}>Minimum Contribution</label>
           <Input 
             label='wei' 
             labelPosition='right'
@@ -61,7 +61,7 @@ class CampaignNew extends Component {
         </Form.Field>
 
         <Message error header='Oops!' content={this.state.errorMessage} />
-        <Button loading={this.state.loading} primary>Create!</Button>
+        <Button inverted color="orange" loading={this.state.loading}>Create!</Button>
       </Form>
 
       </Layout>

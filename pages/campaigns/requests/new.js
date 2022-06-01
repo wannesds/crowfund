@@ -46,14 +46,14 @@ class RequestNew extends Component {
     return (
       <Layout>
         <Link route={`/campaigns/${this.props.address}/requests`}>
-          <a>
+          <a style={{color: "orange"}}>
             Back
           </a>
         </Link>
-        <h3>Create a Request</h3>
+        <h3 style={{color: "#F9E9D1"}}>Create a Request</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
-            <label>Description</label>
+            <label style={{color: "#F9E9D1"}}>Description</label>
             <Input 
               value={this.state.description}
               onChange={event => this.setState({ description: event.target.value })}
@@ -61,7 +61,7 @@ class RequestNew extends Component {
           </Form.Field>
 
           <Form.Field>
-            <label>Value</label>
+            <label style={{color: "#F9E9D1"}}>Value</label>
             <Input 
               value={this.state.value}
               onChange={event => this.setState({ value: event.target.value })}
@@ -69,7 +69,7 @@ class RequestNew extends Component {
           </Form.Field>
 
           <Form.Field>
-            <label>Recipient</label>
+            <label style={{color: "#F9E9D1"}}>Recipient</label>
             <Input 
               value={this.state.recipient}
               onChange={event => this.setState({ recipient: event.target.value })}
@@ -77,7 +77,7 @@ class RequestNew extends Component {
           </Form.Field>
 
           <Message error header="Oops!" content={this.state.errorMessage} />
-          <Button primary loading={this.state.loading}>Create!</Button>
+          <Button inverted color="orange" loading={this.state.loading}>Create!</Button>
         </Form>
       </Layout> 
     );

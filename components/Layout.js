@@ -8,17 +8,19 @@ export default (props) => {
     <div style={{
       backgroundColor: "#191A1E", 
       minHeight: "100vh", 
-      marginTop: "-10px", 
-      paddingTop: "20px",
-      color: "white"
+      paddingTop: "10px"
       }}>
       <Container>
+        
       <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"/>
       </Head>
-      
       <Header />
-      {props.children}
+
+      <Segment inverted>
+        {props.children}
+      </Segment>
+      
       </Container>
     </div>
      
