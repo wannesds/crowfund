@@ -35,14 +35,13 @@ class CampaignIndex extends Component {
     return (
       <Layout>
         <div>
-          <h3 style={{color: "#F9E9D1"}}>Open Campaigns</h3>
+          <h3 style={{color: "#F9E9D1"}}>Open Campaigns on Rinkeby Testnet</h3>
         
           <Link route="/campaigns/new">
             <a >
               <Button inverted color="orange" floated="right" content="Create Campaign" icon="add"/>
             </a>
           </Link>
-
           {this.renderCampaigns()}
         </div>
       </Layout>
